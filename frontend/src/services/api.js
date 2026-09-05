@@ -36,4 +36,23 @@ export const threatsApi = {
   getThreats: () => api.get('/threats').then(r => r.data),
 }
 
+export const risksApi = {
+  getSummary: () => api.get('/risks').then(r => r.data),
+  getBreakdown: (id) => api.get(`/risks/${id}`).then(r => r.data),
+}
+
+export const intelligenceApi = {
+  getNews: () => api.get('/intelligence/news').then(r => r.data),
+  getWeather: () => api.get('/intelligence/weather').then(r => r.data),
+}
+
+export const mitigationApi = {
+  getRoutes: () => api.get('/mitigation/routes').then(r => r.data),
+  getSuppliers: () => api.get('/mitigation/suppliers').then(r => r.data),
+}
+
+export const healthApi = {
+  getHealth: () => api.get('/health').then(r => r.data),
+}
+
 export default api
