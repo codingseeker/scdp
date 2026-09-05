@@ -1,0 +1,26 @@
+# Prometheus configuration for SCDP monitoring
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "scdp-backend"
+    metrics_path: "/api/v1/metrics/prometheus"
+    static_configs:
+      - targets: ["backend:8000"]
+        labels:
+          service: "scdp-api"
+          environment: "development"
+
+  - job_name: "neo4j"
+    metrics_path: "/metrics"
+    static_configs:
+      - targets: ["neo4j:2004"]
+        labels:
+          service: "neo4j"
+
+  - job_name: "redis"
+    static_configs:
+      - targets: ["redis:6379"]
+        labels:
+          service: "redis"

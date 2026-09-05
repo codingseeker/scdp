@@ -1,0 +1,66 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+frontend/node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Build
+frontend/dist/
+
+# Logs
+*.log
+logs/
+
+# Neo4j data
+neo4j-data/
+data/neo4j/
+
+# Redis data
+redis-data/
+data/redis/
+
+# Monitoring data
+monitoring/grafana/data/
+monitoring/prometheus/data/
+
+# Secrets (never commit)
+*.pem
+*.key
+*.cert

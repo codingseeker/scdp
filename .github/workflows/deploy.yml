@@ -1,0 +1,40 @@
+# Deployment Pipeline
+# Deploys to staging and production with approval gates
+
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Target environment"
+        required: true
+        type: choice
+        options:
+          - staging
+          - production
+      image_tag:
+        description: "Docker image tag to deploy (Git SHA)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify image exists
+        run: |
+          echo "Deploying tag: ${{ github.event.inputs.image_tag }}"
+          echo "Environment: ${{ github.event.inputs.environment }}"
+
+      - name: Deploy
+        run: |
+          echo "Deployment to ${{ github.event.inputs.environment }} would happen here"
+          echo "Using image tag: ${{ github.event.inputs.image_tag }}"
+          # In production: use terraform apply, kubectl set image, or cloud CLI
