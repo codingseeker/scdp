@@ -111,7 +111,7 @@ jobs:
         run: docker build -t scdp-frontend:${{ github.sha }} ./frontend
 
       - name: Run Trivy (backend)
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: "scdp-backend:${{ github.sha }}"
           format: "table"
@@ -119,7 +119,7 @@ jobs:
           severity: "CRITICAL,HIGH"
 
       - name: Run Trivy (frontend)
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: "scdp-frontend:${{ github.sha }}"
           format: "table"
