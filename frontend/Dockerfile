@@ -1,7 +1,7 @@
 # Frontend Dockerfile — Multi-stage build served through Nginx
 # Non-root Nginx, production build only
 
-FROM node:20-alpine AS builder
+FROM node:25-alpine AS builder
 
 WORKDIR /app
 
