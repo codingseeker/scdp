@@ -1,7 +1,7 @@
 # Backend Dockerfile — Multi-stage, non-root, minimal production image
 # No secrets stored in image. Dev dependencies stripped.
 
-FROM python:3.12-slim AS builder
+FROM python:3.15-slim AS builder
 
 WORKDIR /build
 
@@ -10,7 +10,7 @@ RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
 # ---
 
-FROM python:3.12-slim AS production
+FROM python:3.15-slim AS production
 
 RUN groupadd -r scdp && useradd -r -g scdp -s /sbin/nologin scdp
 
